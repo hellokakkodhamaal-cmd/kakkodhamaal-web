@@ -1,0 +1,1717 @@
+/* Custom Premium Styling for Kakkodhamal Website */
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-y: scroll;
+  /* Forces custom scrollbar on viewport */
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  /* Prevents body from creating a second scrollbar */
+  background-color: #87d2e3;
+  /* Sky blue background */
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  color: #3e2723;
+}
+
+/* Custom Scrollbar - Clay themed */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #b2ebf2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a1887f;
+  border-radius: 7px;
+  border: 3px solid #b2ebf2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8d6e63;
+}
+
+/* Main Site Container - Full width to prevent side gaps */
+#site-container {
+  width: 100%;
+  margin: 0;
+  position: relative;
+  background-color: transparent;
+}
+
+/* Center container wrapper for 100% scale content alignment */
+.content-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.back-content {
+  z-index: 1;
+}
+
+.front-content {
+  z-index: 5;
+}
+
+/* Zone 0: Header Container */
+#header-container {
+  position: absolute;
+  left: 50%;
+  top: 1.2vw;
+  transform: translateX(-50%);
+  width: 59vw;
+  /* Reduced from 68vw to reduce gap between logo and navbar */
+  max-width: 98%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.header-logo-link {
+  width: 12vw;
+  /* Scaled down from 13.5vw */
+  aspect-ratio: 1380 / 752;
+  display: block;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.header-logo-link:hover {
+  transform: scale(1.06) rotate(-1deg);
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 0.1vw 3vw rgba(255, 255, 255, 0.95)) drop-shadow(0 0.2vw 0.4vw rgba(255, 255, 255, 0.8));
+}
+
+#navbar {
+  position: relative;
+  width: 43vw;
+  /* Scaled down from 51vw to reduce size and item gaps */
+  aspect-ratio: 2296 / 216;
+  background-color: transparent;
+}
+
+.nav-bg {
+  position: absolute;
+  left: 4%;
+  top: 0;
+  width: 85%;
+  height: 100%;
+  pointer-events: none;
+  filter: drop-shadow(0 0.2vw 0.3vw rgba(0, 0, 0, 0.35));
+}
+
+.nav-links {
+  position: absolute;
+  left: -2%;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3vw;
+  /* ADJUST THIS VALUE to increase or decrease the spacing between menu items */
+  z-index: 102;
+}
+
+.nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 72%;
+  aspect-ratio: 281 / 155;
+  text-decoration: none;
+  font-family: 'Baloo Bhai 2', 'Baloo 2', 'Nunito', sans-serif;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 0.85vw;
+  /* Adjusted down from 1vw for the new smaller scale */
+  text-shadow: 0 0.08vw 0.12vw rgba(90, 50, 30, 0.6);
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-item:hover {
+  transform: scale(1.08);
+}
+
+.nav-item:active {
+  transform: scale(0.95);
+}
+
+.nav-item.download-btn {
+  height: 64%;
+  aspect-ratio: 345 / 137;
+  top: 0.18vw;
+}
+
+.nav-item-bg {
+  position: absolute;
+  left: 1;
+  top: 1;
+  width: 130%;
+  height: 130%;
+  pointer-events: none;
+  object-fit: contain;
+  z-index: 1;
+}
+
+/* Hide pressed well background by default for regular links */
+.nav-item:not(.download-btn) .nav-item-bg {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Show pressed well background on hover */
+.nav-item:not(.download-btn):hover .nav-item-bg {
+  opacity: 1;
+}
+
+.nav-item-text {
+  position: relative;
+  z-index: 2;
+  margin-top: -0vw;
+  /* fine-tune vertical centering on clay background */
+}
+
+.download-text {
+  margin-top: -0.25vw;
+}
+
+/* Zone 1: Sky Hero Section */
+#zone-sky {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2560 / 1460;
+  /* Proportional scale height based on width */
+  overflow: hidden;
+  z-index: 1;
+  /* Kept behind Middle Panel to avoid blue sky background overlap */
+  background-color: #87d2e3;
+}
+
+/* Sky Foreground Layer Container (stacked in front of Middle Panel) */
+#sky-foreground-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2560 / 1460;
+  pointer-events: none;
+  /* Let clicks pass through to Middle Panel */
+  z-index: 12;
+  /* Between Middle Panel (10) and Valley (20) */
+  /* overflow: visible to allow transition overlay to extend below the sky boundary */
+}
+
+.sky-bg {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 86%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Dynamic Clouds */
+.dynamic-cloud {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+}
+
+/* Left Side Clay Frame Wrapper */
+.tab-frame-wrap {
+  position: absolute;
+  left: 15%;
+  /* Shifted right to match the red box */
+  top: 45%;
+  /* Shifted down to match the red box */
+  width: 35.957%;
+  /* 70% of natural width */
+  height: 38.884%;
+  /* 70% of natural height */
+  z-index: 2;
+  pointer-events: auto;
+  /* Clickable elements inside the wrapper */
+}
+
+/* Left Side Clay Frame Image */
+.tab-frame {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 1.5vw .6vw rgba(0, 0, 0, 0.3));
+  will-change: transform;
+  animation: frameBob 5s ease-in-out infinite;
+}
+
+@keyframes frameBob {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-1.5%);
+  }
+}
+
+/* Terrain Layers */
+.terrain-left {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 88.125%;
+  /* Responsive width */
+  height: 77.123%;
+  /* Responsive height */
+  z-index: 3;
+  pointer-events: none;
+}
+
+.terrain-right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 57.148%;
+  /* Responsive width */
+  height: 75.753%;
+  /* Responsive height */
+  z-index: 4;
+  pointer-events: none;
+}
+
+@keyframes treeSwayLeft {
+
+  0%,
+  100% {
+    transform: rotate(0deg) skewX(0deg);
+  }
+
+  50% {
+    transform: rotate(0.6deg) skewX(0.3deg);
+  }
+}
+
+@keyframes treeSwayRight {
+
+  0%,
+  100% {
+    transform: rotate(0deg) skewX(0deg);
+  }
+
+  50% {
+    transform: rotate(-0.5deg) skewX(-0.25deg);
+  }
+}
+
+/* Boy Character Wrapper */
+.boy-char-wrap {
+  position: absolute;
+  right: 27%;
+  /* Shifted left to match the yellow outline */
+  bottom: 25%;
+  /* Raised higher up the slope */
+  width: 13.508%;
+  /* 70% of natural width */
+  height: 29.966%;
+  /* 70% of natural height */
+  z-index: 5;
+  pointer-events: auto;
+  /* Clickable elements inside the wrapper */
+}
+
+/* Boy Character Image */
+.boy-char {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform-origin: bottom center;
+  animation: boyBounce 2.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes boyBounce {
+
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+  }
+
+  42% {
+    transform: translateY(-8%) scaleY(1.03) scaleX(0.98);
+  }
+
+  50% {
+    transform: translateY(-9%) scaleY(1.01) scaleX(0.99);
+  }
+
+  58% {
+    transform: translateY(-8%) scaleY(0.99) scaleX(1.01);
+  }
+
+  92% {
+    transform: translateY(0) scaleY(0.95) scaleX(1.04);
+    /* Squash slightly on landing */
+  }
+}
+
+/* Combined Zone 2 & 3: Bottom Section (Earth + Valley) */
+#zone-bottom {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2560 / 3550;
+  /* Proportional scaling for sec2&3.jpg (2560x3550) */
+  margin-top: -7%;
+  /* Proportional overlap with sky hero section */
+  z-index: auto;
+  overflow: hidden;
+}
+
+.bottom-bg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bottom-transition-overlay {
+  position: absolute;
+  left: 0;
+  bottom: -36.3vw;
+  /* Pushed down to overlap Section 2 and a little bit more of Section 1 */
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2560 / 1130;
+  z-index: 10;
+  /* Stacked on top of terrains (3, 4) but behind front content (15) */
+  pointer-events: none;
+  will-change: transform;
+}
+
+.valley-wrapper {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 55%;
+  /* Covers the bottom valley portion */
+  pointer-events: none;
+  z-index: 20;
+}
+
+.valley-card-container {
+  position: absolute;
+  left: 43%;
+  transform: translateX(-50%);
+  top: 22%;
+  width: 50.8%;
+  /* Reduced from 77.6% by 50% */
+  height: auto;
+  aspect-ratio: 2000 / 1071;
+  z-index: 22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.valley-card-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.valley-card-text {
+  position: relative;
+  z-index: 2;
+  width: 72%;
+  /* Stays inside the clay card border */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: -2.5vw;
+  /* Shift up to reduce the top gap */
+}
+
+.valley-card-title {
+  font-family: 'Baloo Bhai 2', 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 2vw;
+  /* Perfectly balanced for the 38.8vw card */
+  color: #3c2415;
+  /* Warm deep clay brown */
+  line-height: 1.45;
+  text-align: left;
+  text-shadow: 0 0.05vw 0.05vw rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.2vw;
+}
+
+.valley-card-subtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6vw;
+  align-items: flex-start;
+  /* Left align the bullets for a clean list layout */
+  width: 100%;
+  padding-left: vw;
+  /* Align nicely inside the border */
+}
+
+.subtitle-item {
+  font-family: 'Baloo Bhai 2', 'Baloo 2', 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 1.05vw;
+  /* Slightly smaller for subtitle hierarchy */
+  color: #543c30;
+  /* Medium-dark clay brown */
+  line-height: 1.4;
+  text-shadow: 0 0.05vw 0.05vw rgba(255, 255, 255, 0.8);
+  text-align: left;
+}
+
+.subtitle-item strong {
+  color: #3c2415;
+  /* Darker brown for bold parts */
+  font-weight: 800;
+}
+
+@keyframes cardFloat {
+
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, -1.5%);
+  }
+}
+
+.valley-left-tree {
+  position: absolute;
+  left: -1%;
+  bottom: 65%;
+  width: 22.295%;
+  /* Reduced from 34.3% by 35% (Increased by 30% from 17.15%) */
+  height: 40.2272%;
+  /* Reduced from 61.888% by 35% (Increased by 30% from 30.944%) */
+  z-index: 25;
+  pointer-events: none;
+  transform-origin: bottom left;
+  animation: treeSwayLeft 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+.valley-right-tree {
+  position: absolute;
+  right: -1%;
+  bottom: 0%;
+  width: 30.5625%;
+  /* Reduced from 40.75% by 25% (Increased by 50% from 20.375%) */
+  height: 81.15%;
+  /* Reduced from 108.2% by 25% (Increased by 50% from 54.1%) */
+  z-index: 25;
+  pointer-events: none;
+  transform-origin: top right;
+  animation: treeSwayRight 13s ease-in-out infinite;
+  will-change: transform;
+}
+
+
+
+/* Cursor Sparkles (Gujarati Characters) */
+.sparkle-particle {
+  position: absolute;
+  pointer-events: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 152, 0, 0.6);
+  z-index: 9999;
+  will-change: transform, opacity;
+  animation: particleFade 1s forwards ease-out;
+}
+
+@keyframes particleFade {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -120px) scale(1.5) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+/* Page Splash Loading Screen */
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  background-color: #5bb2c7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.splash-content {
+  text-align: center;
+}
+
+.splash-circle {
+  width: 120px;
+  height: 120px;
+  border: 10px solid #a1887f;
+  border-top: 10px solid #ffcc80;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hero Headline & Sub-headline overlay styling */
+.hero-title-wrap {
+  position: absolute;
+  left: 15%;
+  top: 12vw;
+  width: 54%;
+  z-index: 6;
+  pointer-events: auto;
+  /* Allow text selection/clicks */
+}
+
+.hero-subtitle-wrap {
+  position: absolute;
+  left: 15%;
+  top: 21.2vw;
+  width: 54%;
+  z-index: 6;
+  pointer-events: auto;
+  /* Allow text selection/clicks */
+}
+
+.hero-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 1000;
+  font-size: 3.5vw;
+  line-height: 1.25;
+  color: #5d3625;
+  /* Warm clay brown */
+  text-shadow: 0 0.1vw 0.1vw rgba(255, 255, 255, 0.7), 0 0.15vw 0.3vw rgba(90, 50, 30, 0.2);
+}
+
+.hero-subtitle {
+  font-family: 'Baloo 2', 'Nunito', sans-serif;
+  font-weight: 500;
+  font-size: 1vw;
+  line-height: 1.5;
+  color: #4e342e;
+  /* Darker clay brown for legibility */
+  text-shadow: 0 0.05vw 0.05vw rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================
+   ZONE 2 & 3: BOTTOM SECTION INNER STYLINGS
+   ========================================== */
+
+
+/* Elephant & Owl Callout Section */
+.callout-sec {
+  position: absolute;
+  top: 50vw;
+  left: 54%;
+  transform: translateX(-50%);
+  width: 58vw;
+  /* Scaled down further to fit perfectly and create spacing */
+  height: 25.7vw;
+  /* Matches the 2.26 aspect ratio of section 3.png (58vw / 2.26 = 25.7vw) to prevent stretching */
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.callout-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  /* Matches exact aspect ratio of callout-sec, so fill is correct and non-stretching */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.callout-images {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.elephant-img {
+  position: absolute;
+  left: -8.5vw;
+  /* Adjusted left offset to keep the tree trunk anchored near the viewport edge */
+  top: 0.5vw;
+  /* Positioned nicely on the branch structure */
+  width: 22.5vw;
+  /* Proportionally scaled down relative to 58vw card width */
+  height: auto;
+  z-index: 11;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15));
+  animation: elephantFloat 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes elephantFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-0.6vw) rotate(0.5deg);
+    /* Slightly gentler float for composite illustration */
+  }
+}
+
+.callout-text-block {
+  position: absolute;
+  right: 3.5vw;
+  /* Margin from right edge of card */
+  top: 42%;
+  /* Shifted up from 50% to reduce the top gap */
+  transform: translateY(-50%);
+  /* Centered vertically */
+  width: 37vw;
+  /* Spans leftward, leaving enough space for the elephant and pills */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8vw;
+  /* Tightened gap for scaled card */
+  text-align: left;
+  z-index: 2;
+}
+
+.callout-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 2.2vw;
+  /* Increased relative size to make it look bigger and prominent */
+  color: #3c2415;
+  /* Warm deep clay brown */
+  line-height: 1.25;
+  text-shadow: 0 0.05vw 0.05vw rgba(255, 255, 255, 0.8);
+}
+
+.callout-body {
+  font-family: 'Baloo 2', 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 1.05vw;
+  /* Increased relative size to make it look bigger and prominent */
+  color: #543c30;
+  /* Medium-dark clay brown */
+  line-height: 1.5;
+  text-shadow: 0 0.05vw 0.05vw rgba(255, 255, 255, 0.8);
+}
+
+/* Lion Banner Section */
+.lion-banner-sec {
+  position: absolute;
+  top: 109vw;
+  left: 7%;
+  width: 86%;
+  height: 15vw;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Center text block horizontally */
+}
+
+.valley-lion-img {
+  position: absolute;
+  right: 19vw;
+  /* Offset to the right of the Section 4 card */
+  top: 19vw;
+  /* Vertically aligned with Section 4 card */
+  width: 23vw;
+  height: 23vw;
+  z-index: 23;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.2));
+  animation: lionFloat 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes lionFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-0.7vw) rotate(-1.5deg);
+  }
+}
+
+.lion-text-block {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center elements vertically/horizontally */
+  gap: 0.4vw;
+  text-align: center;
+  /* Center text align */
+}
+
+.lion-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 2.1vw;
+  color: #ffffff;
+  text-shadow: 0 0.1vw 0.2vw rgba(90, 50, 30, 0.6);
+}
+
+.lion-body {
+  font-family: 'Baloo 2', 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 1.15vw;
+  color: #ffe0b2;
+  line-height: 1.45;
+  text-shadow: 0 0.08vw 0.1vw rgba(90, 50, 30, 0.4);
+}
+
+/* Footer Section */
+.site-footer {
+  position: absolute;
+  top: 111vw;
+  /* Shifted up to place brand and links inside the clay banner */
+  left: 7%;
+  width: 86%;
+  height: 25vw;
+  /* Increased height so copyright stays at the bottom of the page */
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1vw 6.5vw 1.5vw 6.5vw;
+  /* Side padding pushes content inside the red boxes of the clay banner */
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-brand-col {
+  width: 40%;
+  text-align: left;
+  padding-left: 7.5vw;
+  /* Push the branding text further right to align inside the clay banner */
+}
+
+.footer-brand-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 1.8vw;
+  color: #ffcc80;
+  /* Golden cream color */
+  text-shadow: 0 0.08vw 0.1vw rgba(90, 50, 30, 0.5);
+  margin-bottom: 0.4vw;
+}
+
+.footer-brand-desc {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 1vw;
+  color: #ffe0b2;
+  line-height: 1.4;
+  text-shadow: 0 0.05vw 0.05vw rgba(90, 50, 30, 0.3);
+}
+
+.footer-menu-cols {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* Align links and social icons to the right */
+  gap: 1.8vw;
+  /* Vertical spacing between links grid and social section */
+}
+
+.footer-links-grid {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6vw;
+  width: 100%;
+}
+
+.footer-download-section {
+  margin-top: 1.8vw;
+}
+
+.download-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 1.6vw;
+  color: #ffffff;
+  /* Dark brown clay color to match headings in card */
+  margin-bottom: 0.6vw;
+  text-shadow: 0 0.05vw 0.05vw rgba(90, 50, 30, 0.5);
+  text-align: left;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 1vw;
+}
+
+.download-btn-link {
+  position: relative;
+  display: block;
+}
+
+.download-btn-link.locked {
+  cursor: not-allowed;
+  opacity: 0.8;
+  /* 80% opacity for locked state */
+}
+
+.download-btn-link.locked .store-btn-img {
+  filter: saturate(0.65) drop-shadow(0 0.2vw 0.3vw rgba(0, 0, 0, 0.3));
+  pointer-events: none;
+}
+
+.download-btn-link.locked .store-btn-img:hover {
+  transform: none;
+  /* Disable pop-up hover effect for locked store button */
+}
+
+.store-lock-badge {
+  position: absolute;
+  right: -0.3vw;
+  top: 2vw;
+  font-size: 1vw;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 1.8vw;
+  height: 1.8vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0.1vw 0.2vw rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.store-btn-img {
+  width: 11.2vw;
+  /* Fits side-by-side perfectly in the 40% column */
+  height: auto;
+  display: block;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 0.2vw 0.3vw rgba(0, 0, 0, 0.3));
+}
+
+.store-btn-img:hover {
+  transform: scale(1.05) translateY(-0.1vw);
+}
+
+.footer-social-section {
+  display: flex;
+  gap: 0.6vw;
+  /* Small gap between icons to match the mockup */
+  justify-content: flex-end;
+  margin-top: 1.5vw;
+  /* Vertically aligns the top of the social icons with the top of the store buttons */
+  padding-right: 5.2vw;
+  /* Shifts the group to the left to align under the columns */
+}
+
+.social-link-item img {
+  width: 3.2vw;
+  /* Sized to match the height of the store buttons */
+  height: auto;
+  display: block;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 0.2vw 0.3vw rgba(0, 0, 0, 0.3));
+}
+
+.social-link-item img:hover {
+  transform: scale(1.08) translateY(-0.1vw);
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4vw;
+}
+
+.footer-col-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 1.6vw;
+  color: #ffffff;
+  text-shadow: 0 0.08vw 0.1vw rgba(90, 50, 30, 0.5);
+  margin-bottom: 0.4vw;
+}
+
+.footer-link {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 0.95vw;
+  color: #ffcc80;
+  text-decoration: none;
+  text-shadow: 0 0.05vw 0.05vw rgba(90, 50, 30, 0.3);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+  transform: translateX(0.15vw);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vw;
+}
+
+.footer-divider {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.copyright-text {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 0.85vw;
+  color: #ffe0b2;
+  opacity: 0.85;
+  text-align: center;
+  text-shadow: 0 0.05vw 0.05vw rgba(90, 50, 30, 0.3);
+}
+
+.bottom-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 2.8vw;
+  color: #ffffff;
+  text-shadow: 0 0.1vw 0.2vw rgba(90, 50, 30, 0.6);
+  margin-bottom: 0.3vw;
+}
+
+.bottom-subtitle {
+  font-family: 'Baloo 2', 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 1.25vw;
+  color: #ffeb3b;
+  /* Beautiful golden yellow clay color for subtitle */
+  text-shadow: 0 0.08vw 0.1vw rgba(90, 50, 30, 0.4);
+  margin-bottom: 2.5vw;
+}
+
+/* Back to Top Arrow Button - Sticky/Floating at Viewport Top */
+.back-to-top-arrow {
+  position: fixed;
+  top: 0.5vw;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4vw);
+  /* Hide off-screen at top */
+  opacity: 0;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2vw;
+  height: 3.2vw;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    opacity 0.3s ease,
+    color 0.2s ease;
+  cursor: pointer;
+  z-index: 1000;
+  /* Float above nav elements and overlays */
+}
+
+.back-to-top-arrow.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top-arrow svg {
+  width: 1.8vw;
+  height: 1.8vw;
+  transition: transform 0.25s ease;
+  filter: drop-shadow(0 0.1vw 0.2vw rgba(90, 50, 30, 0.8));
+}
+
+.back-to-top-arrow.visible:hover {
+  transform: translateX(-50%) scale(1.15);
+  color: #ffeb3b;
+  /* Beautiful yellow clay highlights on hover */
+}
+
+.back-to-top-arrow:hover svg {
+  transform: translateY(-0.15vw);
+  filter: drop-shadow(0 0.15vw 0.3vw rgba(90, 50, 30, 0.95));
+}
+
+.back-to-top-arrow:active {
+  transform: translateX(-50%) scale(0.92);
+}
+
+/* Section 2: Explore Our 3 Game Modes Stylings */
+.explore-sec {
+  position: absolute;
+  top: 3.5vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 74vw;
+  z-index: 15;
+  text-align: center;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2vw;
+  margin-top: 1.5vw;
+}
+
+.explore-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1239 / 1511;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.8vw 1.5vw;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 0.2vw 0.3vw rgba(0, 0, 0, 0.35));
+}
+
+.explore-card:hover {
+  transform: translateY(-0.5vw);
+}
+
+.explore-card.locked {
+  filter: saturate(0.85) drop-shadow(0 0.2vw 0.3vw rgba(0, 0, 0, 0.35));
+}
+
+.explore-card .card-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.explore-card .card-inner-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 78%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6vw;
+  text-align: center;
+}
+
+.card-title {
+  font-family: 'Baloo Bhai 2', 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 2.2vw;
+  line-height: 1.25;
+  margin-top: 1.3vw;
+}
+
+.blue-text {
+  color: #0b5f9e;
+  text-shadow: 0 0.05vw 0.05vw rgba(255, 255, 255, 0.8);
+}
+
+.green-text {
+  color: #1b5e20;
+  text-shadow: 0 0.05vw 0.05vw rgba(255, 255, 255, 0.8);
+}
+
+.red-text {
+  color: #b71c1c;
+  text-shadow: 0 0.05vw 0.05vw rgba(255, 255, 255, 0.8);
+}
+
+.eng-sub {
+  font-size: 1.2vw;
+  font-weight: 600;
+  color: inherit;
+  opacity: 0.85;
+}
+
+.status-badge {
+  display: inline-block;
+  background: #e57373;
+  color: white;
+  padding: 0.15vw 0.8vw;
+  border-radius: 12px;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 0.75vw;
+  font-weight: 800;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: -0.2vw;
+}
+
+.explore-card .card-body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 0.95vw;
+  color: #4e342e;
+  line-height: 1.4;
+  margin-top: 0.2vw;
+  width: 84%;
+  /* Shrink text area to prevent touching borders */
+}
+
+.explore-card .card-hook {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 0.95vw;
+  color: #5d4037;
+  line-height: 1.3;
+  margin-top: 0.4vw;
+  border-top: 1px dashed rgba(93, 64, 55, 0.2);
+  padding-top: 0.4vw;
+  width: 90%;
+}
+
+.explore-card .card-btn,
+.explore-card .card-btn-disabled {
+  position: absolute;
+  bottom: 8.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 61.5%;
+  height: 12.9%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.explore-card .card-btn:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+.explore-card .card-btn:active {
+  transform: translateX(-50%) scale(0.95);
+}
+
+.explore-card .card-btn-disabled {
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+  opacity: 0.8;
+}
+
+.explore-card .card-btn-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.explore-card .card-btn-text {
+  position: relative;
+  z-index: 4;
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 1.5vw;
+  color: #ffffff;
+  text-shadow: 0 0.08vw 0.1vw rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   ABOUT US POPUP MODAL STYLES
+   ========================================== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  /* Sit on top of everything */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup-card {
+  position: relative;
+  width: 64vw;
+  /* Scaled up from 50vw for better readability and spacing */
+  max-width: 90%;
+  aspect-ratio: 2000 / 1071;
+  /* Matches aspect-ratio of tab.png */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.85);
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.popup-overlay.active .popup-card {
+  transform: scale(1);
+}
+
+.popup-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 0.8vw 1.5vw rgba(0, 0, 0, 0.3));
+}
+
+.popup-content {
+  position: relative;
+  z-index: 2;
+  width: 82%;
+  /* Safe zone inside clay borders */
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  color: #3c2415;
+  text-shadow: 0 0.05vw 0.05vw rgba(255, 255, 255, 0.8);
+  padding: 1vw 0.5vw;
+}
+
+.popup-title {
+  font-family: 'Baloo Bhai 2', 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 1.8vw;
+  color: #3c2415;
+  text-align: center;
+  margin-bottom: 0.8vw;
+  border-bottom: 2px dashed rgba(93, 64, 55, 0.2);
+  padding-bottom: 0.4vw;
+}
+
+.popup-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.8vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vw;
+}
+
+/* Custom premium scrollbar for popup */
+.popup-scroll-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+.popup-scroll-area::-webkit-scrollbar-track {
+  background: rgba(93, 64, 55, 0.05);
+  border-radius: 4px;
+}
+
+.popup-scroll-area::-webkit-scrollbar-thumb {
+  background: #a1887f;
+  border-radius: 4px;
+}
+
+.popup-body {
+  font-family: 'Baloo 2', 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 0.95vw;
+  line-height: 1.45;
+}
+
+.popup-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1vw;
+}
+
+.popup-section-title {
+  font-family: 'Baloo Bhai 2', 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 1vw;
+  color: #5d3625;
+}
+
+.popup-section-body {
+  font-family: 'Baloo 2', 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 0.9vw;
+  line-height: 1.4;
+  color: #543c30;
+}
+
+.popup-footer-text {
+  font-family: 'Baloo Bhai 2', 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 1vw;
+  color: #3c2415;
+  text-align: center;
+  margin-top: 0.4vw;
+  border-top: 1px dashed rgba(93, 64, 55, 0.2);
+  padding-top: 0.6vw;
+}
+
+.popup-close-btn {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 2.2vw;
+  height: 2.2vw;
+  border-radius: 50%;
+  border: none;
+  background: #d84315;
+  /* Warm clay red-orange */
+  color: white;
+  font-size: 1.2vw;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.popup-close-btn:hover {
+  transform: scale(1.1);
+  background: #bf360c;
+}
+
+.popup-close-btn:active {
+  transform: scale(0.9);
+}
+
+/* Modal Responsive adjustments */
+@media (max-width: 768px) {
+  .popup-card {
+    width: 90vw;
+    height: auto;
+    aspect-ratio: auto;
+    padding: 6vw 4vw;
+    background: url('images/tab.png') no-repeat center center;
+    background-size: 100% 100%;
+  }
+
+  .popup-bg {
+    display: none;
+  }
+
+  .popup-content {
+    width: 100%;
+    height: auto;
+  }
+
+  .popup-title {
+    font-size: 5vw;
+    margin-bottom: 3vw;
+  }
+
+  .popup-body {
+    font-size: 3.5vw;
+  }
+
+  .popup-section-title {
+    font-size: 3.8vw;
+  }
+
+  .popup-section-body {
+    font-size: 3.4vw;
+  }
+
+  .popup-footer-text {
+    font-size: 3.8vw;
+    margin-top: 2vw;
+  }
+
+  .popup-close-btn {
+    width: 8vw;
+    height: 8vw;
+    font-size: 4vw;
+    right: 2vw;
+    top: 2vw;
+  }
+}
+
+/* ==========================================
+   PRIVACY POLICY FULL PAGE MODAL
+   ========================================== */
+.privacy-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #ffffff;
+  /* full page white as requested */
+  z-index: 10005;
+  /* Sit above the About modal */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.privacy-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.privacy-card {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 4vw auto;
+  padding: 3vw 4vw;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.privacy-close-btn {
+  position: fixed;
+  right: 4vw;
+  top: 3vw;
+  width: 3vw;
+  height: 3vw;
+  max-width: 45px;
+  max-height: 45px;
+  min-width: 35px;
+  min-height: 35px;
+  border-radius: 50%;
+  border: 2px solid #3e2723;
+  background: #ffffff;
+  color: #3e2723;
+  font-size: 1.8vw;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  z-index: 10010;
+}
+
+.privacy-close-btn:hover {
+  transform: scale(1.1);
+  background-color: #3e2723;
+  color: #ffffff;
+}
+
+.privacy-content {
+  width: 100%;
+  color: #3e2723;
+  text-align: left;
+}
+
+.privacy-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 2.5vw;
+  line-height: 1.2;
+  margin-bottom: 0.5vw;
+  color: #3e2723;
+}
+
+.privacy-date {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 1vw;
+  color: #8d6e63;
+  margin-bottom: 2vw;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 1vw;
+}
+
+.privacy-scroll-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+}
+
+.privacy-intro {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  font-size: 1.1vw;
+  line-height: 1.6;
+}
+
+.privacy-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6vw;
+}
+
+.privacy-section-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 1.4vw;
+  color: #5d4037;
+  margin-top: 0.5vw;
+}
+
+.privacy-section-body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  font-size: 1.05vw;
+  line-height: 1.55;
+}
+
+.privacy-section-body strong {
+  font-weight: 700;
+  color: #3e2723;
+}
+
+.privacy-section-body a {
+  color: #0b5f9e;
+  text-decoration: underline;
+}
+
+.privacy-footer-note {
+  font-family: 'Baloo Bhai 2', 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 1.2vw;
+  color: #5d4037;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 1.5vw;
+  margin-top: 1vw;
+}
+
+/* Mobile responsive styling for privacy page */
+@media (max-width: 768px) {
+  .privacy-card {
+    margin: 12vw auto 6vw auto;
+    padding: 6vw 5vw;
+  }
+
+  .privacy-title {
+    font-size: 6vw;
+  }
+
+  .privacy-date {
+    font-size: 3.5vw;
+  }
+
+  .privacy-intro {
+    font-size: 4vw;
+  }
+
+  .privacy-section-title {
+    font-size: 4.5vw;
+  }
+
+  .privacy-section-body {
+    font-size: 3.8vw;
+  }
+
+  .privacy-footer-note {
+    font-size: 4.2vw;
+  }
+
+  .privacy-close-btn {
+    font-size: 6vw;
+    right: 5vw;
+    top: 4vw;
+  }
+}
