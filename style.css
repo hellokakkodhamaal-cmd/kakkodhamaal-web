@@ -156,18 +156,34 @@ body {
   transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.nav-item:hover {
-  transform: scale(1.08);
+/* Regular links (Home, Moduals, About us) default to scaled up */
+.nav-item:not(.download-btn) {
+  transform: scale(1.45);
 }
 
-.nav-item:active {
-  transform: scale(0.95);
+/* Regular links shrink on hover */
+.nav-item:not(.download-btn):hover {
+  transform: scale(1.15);
 }
 
+/* Regular links active pressed state */
+.nav-item:not(.download-btn):active {
+  transform: scale(1.0);
+}
+
+/* Download App button hover behaviors */
 .nav-item.download-btn {
   height: 64%;
   aspect-ratio: 345 / 137;
   top: 0.18vw;
+}
+
+.nav-item.download-btn:hover {
+  transform: scale(1.05);
+}
+
+.nav-item.download-btn:active {
+  transform: scale(0.95);
 }
 
 .nav-item-bg {
@@ -1681,37 +1697,664 @@ body {
 /* Mobile responsive styling for privacy page */
 @media (max-width: 768px) {
   .privacy-card {
-    margin: 12vw auto 6vw auto;
-    padding: 6vw 5vw;
+    margin: 60px auto 30px auto !important;
+    padding: 25px 20px !important;
   }
 
   .privacy-title {
-    font-size: 6vw;
+    font-size: 28px !important;
   }
 
   .privacy-date {
-    font-size: 3.5vw;
+    font-size: 14px !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 10px !important;
   }
 
   .privacy-intro {
-    font-size: 4vw;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
   }
 
   .privacy-section-title {
-    font-size: 4.5vw;
+    font-size: 18px !important;
+    margin-top: 10px !important;
   }
 
   .privacy-section-body {
-    font-size: 3.8vw;
-  }
-
-  .privacy-footer-note {
-    font-size: 4.2vw;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
   }
 
   .privacy-close-btn {
-    font-size: 6vw;
-    right: 5vw;
-    top: 4vw;
+    font-size: 20px !important;
+    right: 20px !important;
+    top: 20px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+/* Mobile Navigation Elements (Hidden on Desktop) */
+.mobile-menu-btn,
+.mobile-menu-overlay {
+  display: none;
+}
+
+/* Comprehensive Mobile & Tablet Responsive Layout (768px and below) */
+@media screen and (max-width: 768px) {
+  
+  /* --- Global Reset & Fluid Layouts --- */
+  #site-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* --- Center container wrapper absolute height resolution fix --- */
+  .content-wrapper {
+    height: auto !important;
+  }
+
+  /* --- Zone 0: Header & Hamburger Menu --- */
+  #header-container {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    background-color: #ffffff !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    z-index: 110 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  .header-logo-link {
+    width: 110px !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+  }
+
+  #navbar {
+    display: none !important;
+  }
+
+  /* Hamburger Menu Button */
+  .mobile-menu-btn {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+    padding: 0;
+  }
+
+  .hamburger-line {
+    width: 100%;
+    height: 3px;
+    background-color: #5d3625; /* Match theme deep brown */
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* hamburger active animations */
+  .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: #ffffff; /* Goes white on active menu */
+  }
+
+  .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    background-color: #ffffff; /* Goes white on active menu */
+  }
+
+  /* Mobile Drawer Overlay Drawer */
+  .mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(93, 64, 55, 0.96); /* Warm clay brown overlay */
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 180;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-menu-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 38px;
+    cursor: pointer;
+    font-family: 'Baloo 2', sans-serif;
+  }
+
+  .mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .mobile-nav-link {
+    font-family: 'Baloo Bhai 2', 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease, color 0.2s ease;
+  }
+
+  .mobile-nav-link:hover, .mobile-nav-link:active {
+    color: #ffeb3b;
+    transform: scale(1.08);
+  }
+
+  .mobile-nav-link.mobile-download-btn {
+    background: #ffcc80;
+    color: #5d3625;
+    padding: 8px 24px;
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-shadow: none;
+  }
+
+  /* --- Zone 1: Sky Hero Section Stack --- */
+  #zone-sky {
+    display: none !important;
+  }
+
+  #sky-foreground-container {
+    position: relative !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 30px 20px 80px 20px !important;
+    background-image: url('images/sky top.png') !important;
+    background-size: 100% 100% !important;
+    background-position: top center !important;
+    overflow: visible !important;
+    z-index: 20 !important;
+  }
+
+  #cloud-container {
+    height: auto !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    position: absolute !important;
+    width: 100% !important;
+    z-index: 1 !important;
+  }
+
+  .dynamic-cloud {
+    position: absolute !important;
+    left: 0 !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+  }
+
+  .content-wrapper.front-content {
+    position: relative !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 30px !important;
+  }
+
+  /* Hero Headline Stack */
+  .hero-title-wrap {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 5px !important;
+    order: 1 !important; /* Text comes first */
+  }
+
+  .hero-title {
+    font-size: 32px !important;
+    line-height: 1.3 !important;
+  }
+
+  .hero-subtitle-wrap {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    order: 2 !important; /* Text comes first */
+  }
+
+  .hero-subtitle {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Floating Clay Tablet Stack */
+  .tab-frame-wrap {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 86vw !important;
+    height: auto !important;
+    aspect-ratio: 2000 / 1071 !important;
+    margin: 10px auto 30px auto !important;
+    order: 3 !important; /* Tablet second */
+  }
+
+  /* Jumping Boy Mascot position relative below tablet */
+  .boy-char-wrap {
+    position: absolute !important;
+    right: 5% !important;
+    bottom: -15px !important;
+    width: 80px !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    z-index: 6 !important;
+    order: 4 !important; /* Boy third */
+  }
+
+  .boy-char {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Terrains positioning inside the vertical layout */
+  .terrain-left {
+    position: absolute !important;
+    width: 100% !important;
+    height: auto !important; /* Prevent stretching */
+    left: 0 !important;
+    bottom: 0 !important;
+    display: block !important;
+  }
+
+  .terrain-right {
+    display: none !important; /* Hide terrain-right on mobile */
+  }
+
+  .bottom-transition-overlay {
+    position: absolute !important;
+    bottom: -36vw !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 2560 / 1130 !important;
+    z-index: 25 !important;
+  }
+
+  /* --- Zone 2 & 3: Flow Layout for Earth & Valley --- */
+  #zone-bottom {
+    position: relative !important;
+    z-index: 5 !important;
+    aspect-ratio: auto !important;
+    height: auto !important;
+    margin-top: -10vw !important; /* Overlaps transition overlay correctly */
+    padding: 38vw 16px 40px 16px !important; /* Moved down to prevent overlapping with wavy clay border */
+    background-image: url('images/sec2&3.jpg');
+    background-size: cover;
+    background-position: top center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 50px !important;
+  }
+
+  /* Hide the static background image element since section background cover is used */
+  .bottom-bg {
+    display: none !important;
+  }
+
+  /* --- Section 2: Explore Our 3 Game Modes --- */
+  .explore-sec {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 420px;
+    margin: 0 auto !important;
+  }
+
+  .bottom-title {
+    font-size: 28px !important;
+    text-align: center !important;
+  }
+
+  .bottom-subtitle {
+    font-size: 18px !important;
+    margin-bottom: 25px !important;
+    text-align: center !important;
+  }
+
+  .explore-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+    max-width: 420px;
+    margin: 0 auto;
+    height: auto !important;
+  }
+
+  .explore-card {
+    padding: 35px 25px 95px 25px !important;
+    height: auto !important;
+    aspect-ratio: unset !important;
+  }
+
+  .explore-card .card-inner-content {
+    height: auto !important;
+    gap: 12px !important;
+  }
+
+  .card-title {
+    font-size: 26px !important;
+    line-height: 1.25 !important;
+  }
+
+  .eng-sub {
+    font-size: 16px !important;
+  }
+
+  .explore-card .card-body {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    width: 92% !important;
+  }
+
+  .explore-card .card-hook {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    margin-top: 5px !important;
+  }
+
+  .explore-card .card-btn,
+  .explore-card .card-btn-disabled {
+    position: absolute !important;
+    bottom: 22px !important;
+    width: 76.5% !important;
+  }
+
+  .explore-card .card-btn-text {
+    font-size: 18px !important;
+  }
+
+  /* --- Section 3: Callout Block (Elephant & Owl) --- */
+  .callout-sec {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 420px;
+    height: auto !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    background: #f7ede2;
+    border: 5px solid #d4a373;
+    border-radius: 28px;
+    padding: 30px 20px 25px 20px !important;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.7), 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Hide callout-bg since it stretches poorly */
+  .callout-bg {
+    display: none !important;
+  }
+
+  .callout-images {
+    position: relative !important;
+    width: 100% !important;
+    height: 160px !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .elephant-img {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 180px !important;
+    height: auto !important;
+    animation: elephantFloat 5s ease-in-out infinite;
+  }
+
+  .callout-text-block {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    text-align: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  .callout-title {
+    font-size: 20px !important;
+    text-align: center !important;
+  }
+
+  .callout-body {
+    font-size: 14px !important;
+    text-align: center !important;
+  }
+
+  /* --- Section 4: Valley Card --- */
+  .valley-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 420px;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    padding: 0 !important;
+  }
+
+  .valley-card-container {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    background: #efebe9;
+    border: 5px solid #a1887f;
+    border-radius: 28px;
+    padding: 30px 20px !important;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.7), 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Hide raw clay frame for card wrapper on mobile to stack layout correctly */
+  .valley-card-bg {
+    display: none !important;
+  }
+
+  .valley-card-text {
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  .valley-card-title {
+    font-size: 18px !important;
+    text-align: center !important;
+    margin-bottom: 15px !important;
+  }
+
+  .valley-card-subtitle {
+    align-items: center !important;
+    gap: 10px !important;
+    padding-left: 0 !important;
+  }
+
+  .subtitle-item {
+    font-size: 14px !important;
+    text-align: center !important;
+  }
+
+  /* Lion mascot stacked at the bottom of the section */
+  .valley-lion-img {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    width: 130px !important;
+    height: 130px !important;
+    margin: 10px 0 !important;
+  }
+
+  /* --- Section 5: Footer --- */
+  .site-footer {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    max-width: 420px;
+    height: auto !important;
+    padding: 40px 20px 20px 20px !important;
+    background: rgba(90, 50, 30, 0.95);
+    border: 5px solid #d7ccc8;
+    border-radius: 28px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .footer-top {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 30px !important;
+  }
+
+  .footer-brand-col {
+    width: 100% !important;
+    text-align: center !important;
+    padding-left: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .footer-brand-title {
+    font-size: 24px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .footer-brand-desc {
+    font-size: 14px !important;
+    width: 90% !important;
+  }
+
+  .footer-menu-cols {
+    width: 100% !important;
+    align-items: center !important;
+    gap: 30px !important;
+  }
+
+  .footer-links-grid {
+    justify-content: center !important;
+    gap: 40px !important;
+  }
+
+  .footer-col {
+    align-items: center !important;
+  }
+
+  .footer-col-title {
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .footer-link {
+    font-size: 15px !important;
+  }
+
+  .footer-download-section {
+    width: 100% !important;
+    margin-top: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .download-title {
+    font-size: 20px !important;
+    text-align: center !important;
+    margin-bottom: 15px !important;
+  }
+
+  .download-buttons {
+    justify-content: center !important;
+    gap: 15px !important;
+  }
+
+  .store-btn-img {
+    width: 140px !important;
+  }
+
+  .footer-social-section {
+    width: 100% !important;
+    justify-content: center !important;
+    padding-right: 0 !important;
+    margin-top: 20px !important;
+    gap: 15px !important;
+  }
+
+  .social-link-item img {
+    width: 42px !important;
+  }
+
+  .footer-bottom {
+    margin-top: 25px !important;
+    align-items: center !important;
+  }
+
+  /* Back to Top Arrow floating at bottom right on mobile */
+  .back-to-top-arrow {
+    width: 44px !important;
+    height: 44px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    background: #5d4037 !important;
+    border-radius: 50% !important;
+    border: 2px solid #ffcc80 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  .back-to-top-arrow svg {
+    width: 24px !important;
+    height: 24px !important;
+    stroke: #ffcc80 !important;
   }
 }

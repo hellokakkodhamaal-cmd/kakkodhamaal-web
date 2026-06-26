@@ -119,7 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const cloudTop = 2 + (i * laneHeight) + Math.random() * (laneHeight - 1);
       img.style.top = `${cloudTop}%`;
       
-      const baseWidth = 8 + Math.random() * 6; // Width 8vw to 14vw
+      // Scale cloud width dynamically: 20vw to 35vw on mobile, 8vw to 14vw on desktop
+      const isMobile = window.innerWidth <= 768;
+      const baseWidth = isMobile ? (20 + Math.random() * 15) : (8 + Math.random() * 6);
       img.style.width = `${baseWidth}vw`;
       
       const scale = 0.8 + Math.random() * 0.4;
@@ -198,7 +200,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
         cloud.speed = 0.012 + Math.random() * 0.018;
         
-        const baseWidth = 8 + Math.random() * 6;
+        const isMobile = window.innerWidth <= 768;
+        const baseWidth = isMobile ? (20 + Math.random() * 15) : (8 + Math.random() * 6);
         cloud.element.style.width = `${baseWidth}vw`;
         cloud.scale = 0.8 + Math.random() * 0.4;
         cloud.element.style.zIndex = Math.round(baseWidth * cloud.scale);
@@ -224,6 +227,46 @@ document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(updateParallax);
 
 
+
+  // --- 5. Mobile Navigation Menu Toggle ---
+  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+  const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+  const closeMobileMenuBtn = document.getElementById("close-mobile-menu");
+  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+  if (mobileMenuBtn && mobileMenuOverlay) {
+    mobileMenuBtn.addEventListener("click", () => {
+      mobileMenuBtn.classList.toggle("active");
+      mobileMenuOverlay.classList.toggle("active");
+      if (mobileMenuOverlay.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    });
+
+    const closeMobileMenu = () => {
+      mobileMenuBtn.classList.remove("active");
+      mobileMenuOverlay.classList.remove("active");
+      document.body.style.overflow = "";
+    };
+
+    if (closeMobileMenuBtn) {
+      closeMobileMenuBtn.addEventListener("click", closeMobileMenu);
+    }
+
+    mobileMenuOverlay.addEventListener("click", (e) => {
+      if (e.target === mobileMenuOverlay) {
+        closeMobileMenu();
+      }
+    });
+
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      });
+    });
+  }
 
   // --- About Us Popup Control ---
   const aboutPopup = document.getElementById("about-popup");

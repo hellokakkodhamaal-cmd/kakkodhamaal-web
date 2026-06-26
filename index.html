@@ -10,7 +10,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600;800&family=Baloo+2:wght@600;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=23">
+  <link rel="stylesheet" href="style.css?v=34">
 </head>
 
 <body>
@@ -58,6 +58,13 @@
           </a>
         </nav>
       </header>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
 
     <!-- Zone 1: Sky Hero Section (Background sky and clouds) -->
@@ -65,13 +72,12 @@
       <!-- Sky Background -->
       <img src="images/sky top.png" alt="Sky Background" class="sky-bg parallax-layer" data-speed-y="0.1"
         data-speed-x="0.05">
-
-      <!-- Back Content Wrapper (Clouds behind terrains) -->
-      <div class="content-wrapper back-content" id="cloud-container"></div>
     </section>
 
     <!-- Sky Foreground Layer (Stacked on top of Earth Section / Middle Panel) -->
     <div id="sky-foreground-container">
+      <!-- Back Content Wrapper (Clouds behind terrains) - Placed inside foreground container for correct mobile layering -->
+      <div class="content-wrapper back-content" id="cloud-container"></div>
       <!-- Left Terrain (landscape / hills with trees) -->
       <img src="images/land 02 copy 7.png" alt="Left Terrain" class="terrain-left parallax-layer" data-speed-y="0.15"
         data-speed-x="0.08">
@@ -318,61 +324,68 @@
     <div class="privacy-card">
       <button id="close-privacy" class="privacy-close-btn" aria-label="Close privacy policy">&times;</button>
       <div class="privacy-content">
-        <h1 class="privacy-title">Privacy Policy for Kakko Dhamal</h1>
-        <p class="privacy-date">Last Updated: June 26, 2026</p>
+        <h1 class="privacy-title">Privacy Policy</h1>
+        <p class="privacy-date">Last Updated: June 2026</p>
         
         <div class="privacy-scroll-area">
-          <p class="privacy-intro">Kakko Dhamal ("we," "our," or "us") is committed to protecting the privacy of our users, especially young children. This Privacy Policy explains how we handle information in connection with our mobile application, Kakko Dhamal (the "App").</p>
-          <p class="privacy-intro">Because our App is designed specifically for children, we take extra precautions to protect their safety and privacy online. We strictly adhere to Google Play’s Families Policy and applicable child protection regulations.</p>
+          <p class="privacy-intro">Welcome to Kakkodhamal, a fun and interactive Gujarati alphabet learning mobile application designed specifically for children. This Privacy Policy details how we treat information when you use our app.</p>
           
           <div class="privacy-section">
-            <h2 class="privacy-section-title">1. Information We Do Not Collect (Children's Privacy)</h2>
-            <p class="privacy-section-body">Kakko Dhamal is designed strictly as a safe, family-friendly educational game for kids.</p>
-            <p class="privacy-section-body"><strong>No Personal Data:</strong> We do not knowingly collect, store, or solicit any personally identifiable information (such as names, email addresses, phone numbers, or precise physical locations) from children.</p>
-            <p class="privacy-section-body"><strong>No Personalized Ads Data:</strong> Because our app targets children, we explicitly disable the tracking of the Android Advertising Identifier (AAID) and do not pass any user-tracking data to ad networks.</p>
-            <p class="privacy-section-body"><strong>No Account Creation:</strong> Children can play the entire app without creating an account or logging in.</p>
+            <h2 class="privacy-section-title">🛡️ Privacy Commitment</h2>
+            <p class="privacy-section-body">We prioritize your child's privacy. While Kakkodhamal does not directly collect, store, or transmit personal information, the app partner-integrates with third-party advertising providers to support the application.</p>
           </div>
           
           <div class="privacy-section">
-            <h2 class="privacy-section-title">2. Information Collected Automatically</h2>
-            <p class="privacy-section-body">To help us maintain the gaming experience, provide sound effects, and track progression milestones, the App processes minimal, non-personal technical data:</p>
-            <p class="privacy-section-body"><strong>Local Game Progress:</strong> Your child's unlocked levels and simple words mastered are stored locally right on your Android device. This data stays on your device and is never uploaded to an external server. No scores or high scores are tracked or stored anywhere.</p>
-            <p class="privacy-section-body"><strong>Device Performance Information:</strong> We may use standard anonymized operational tools (such as Google Play Console analytics) to review crashes or bugs. This information contains no personal data and is only used to maintain technical stability.</p>
+            <h2 class="privacy-section-title">1. 100% Offline & Local Gameplay</h2>
+            <p class="privacy-section-body">Aside from fetching advertisements when an active internet connection is available, all learning progress, gameplay, and interactions remain stored 100% locally on your device.</p>
           </div>
           
           <div class="privacy-section">
-            <h2 class="privacy-section-title">3. Third-Party Services & Advertising</h2>
-            <p class="privacy-section-body">To help keep this educational app free to use, we display limited, child-safe advertisements. We enforce strict safety measures to keep the workspace secure and distraction-free for children:</p>
-            <p class="privacy-section-body"><strong>Strict "G" Content Rating:</strong> We only request contextual ads with a maximum content rating of G (General Audience). The ad content is filtered to ensure it is completely safe and appropriate for young children.</p>
-            <p class="privacy-section-body"><strong>No Behavioral or Targeted Advertising:</strong> All personalized ads, interest-based tracking, and remarketing are entirely disabled. Ads are served purely based on the context of the app, not your child’s history.</p>
-            <p class="privacy-section-body"><strong>Families Self-Certified Ad Networks:</strong> We only use Google Play Self-Certified Ads SDKs (such as Google AdMob configured for child-directed treatment). These providers may process non-personal data—such as ad impressions, clicks, and basic usage data—purely for operational purposes like ad frequency capping and fraud detection.</p>
-            <p class="privacy-section-body"><strong>External Links:</strong> Any functional external links (such as a link to rate us on the Play Store) or ad-click destinations are secured behind an adult-gated parental control mechanism to prevent accidental navigation by children.</p>
+            <h2 class="privacy-section-title">2. No Account Registration</h2>
+            <p class="privacy-section-body">There are no sign-ups, registrations, or profiles required to use our application. Children can start learning instantly without entering any personal identifiers, emails, names, or phone numbers.</p>
           </div>
           
           <div class="privacy-section">
-            <h2 class="privacy-section-title">4. Data Retention and Security</h2>
-            <p class="privacy-section-body">Since we do not collect personal information, we do not store personal data on external cloud servers. All gameplay progression lives directly within the App storage on your physical device. If you delete or clear the App cache from your device settings, your local progress data will be permanently removed.</p>
+            <h2 class="privacy-section-title">3. Advertising & Third-Party SDKs</h2>
+            <p class="privacy-section-body">To keep this app free, we display advertisements. We only partner with ad networks that support COPPA-compliant configurations for children's apps.</p>
+            <p class="privacy-section-body"><strong>Non-Personalized Ads Only:</strong> We explicitly configure our ad providers to serve non-personalized or contextually relevant ads to ensure children's behavior is not tracked across websites or apps.</p>
+            <p class="privacy-section-body">The ad networks may collect anonymous, technical device identifiers solely for ad frequency capping, contextual targeting, and fraud prevention.</p>
           </div>
           
           <div class="privacy-section">
-            <h2 class="privacy-section-title">5. Changes to This Privacy Policy</h2>
-            <p class="privacy-section-body">We may update our Privacy Policy from time to time to align with new feature releases or regulatory changes. We encourage parents to periodically review this page for any updates.</p>
+            <h2 class="privacy-section-title">4. Children's Privacy Compliance (COPPA & Google Play Families)</h2>
+            <p class="privacy-section-body">Our app is designed to fully comply with the Children's Online Privacy Protection Act (COPPA) and Google Play Families Policies.</p>
+            <p class="privacy-section-body">We do not knowingly collect personal data from children under 13.</p>
+            <p class="privacy-section-body">All ad traffic is flagged as Child-Directed at the SDK level to disable behavioral tracking.</p>
+          </div>
+          
+          <div class="privacy-section">
+            <h2 class="privacy-section-title">5. Permissions</h2>
+            <p class="privacy-section-body">Depending on the ad network requirements, the app may utilize basic network access permissions (INTERNET and ACCESS_NETWORK_STATE) to fetch ads. It does not request access to sensitive features like your location, camera, microphone, or contacts.</p>
           </div>
           
           <div class="privacy-section">
             <h2 class="privacy-section-title">6. Contact Us</h2>
-            <p class="privacy-section-body">If you have any questions or feedback regarding this Privacy Policy or our child-safety practices, please contact us at:</p>
-            <p class="privacy-section-body"><strong>Email:</strong> <a href="mailto:hello.kakkodhamaal@gmail.com">hello.kakkodhamaal@gmail.com</a></p>
-            <p class="privacy-section-body"><strong>Location:</strong> Ahmedabad, Gujarat, India</p>
+            <p class="privacy-section-body">If you have any questions or feedback regarding this Privacy Policy or our advertising practices, please feel free to reach out to us at:</p>
+            <p class="privacy-section-body">✉️ <strong>Email:</strong> <a href="mailto:hello.kakkodhamaal@gmail.com">hello.kakkodhamaal@gmail.com</a></p>
           </div>
-          
-          <p class="privacy-footer-note">અક્ષરોની આ કલરફુલ અને મનોરંજક સફરમાં તમારા બાળક સાથે જોડાઓ! 🚀</p>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="app.js?v=20"></script>
+  <!-- Mobile Overlay Menu Drawer -->
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+    <button class="mobile-menu-close" id="close-mobile-menu" aria-label="Close Menu">&times;</button>
+    <div class="mobile-menu-content">
+      <a href="#site-container" class="mobile-nav-link">Home</a>
+      <a href="#zone-bottom" class="mobile-nav-link">Moduals</a>
+      <a href="#about" class="mobile-nav-link">About us</a>
+      <a href="#footer" class="mobile-nav-link mobile-download-btn">Download App</a>
+    </div>
+  </div>
+
+  <script src="app.js?v=26"></script>
 </body>
 
 </html>
