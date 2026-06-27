@@ -10,7 +10,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600;800&family=Baloo+2:wght@600;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=34">
+  <link rel="stylesheet" href="style.css?v=35">
 </head>
 
 <body>
@@ -70,7 +70,7 @@
     <!-- Zone 1: Sky Hero Section (Background sky and clouds) -->
     <section id="zone-sky" class="parallax-section">
       <!-- Sky Background -->
-      <img src="images/sky top.png" alt="Sky Background" class="sky-bg parallax-layer" data-speed-y="0.1"
+      <img src="images/sky top.jpg" alt="Sky Background" class="sky-bg parallax-layer" data-speed-y="0.1"
         data-speed-x="0.05">
     </section>
 
@@ -284,8 +284,6 @@
       </footer>
     </section>
 
-
-
   </div>
 
   <!-- About Us Popup Modal -->
@@ -310,7 +308,7 @@
           
           <div class="popup-section">
             <h4 class="popup-section-title">🔒 સંપૂર્ણ સુરક્ષિત (100% Child-Safe)</h4>
-            <p class="popup-section-body">કોઈ લોગ-ઈન નહીં, કોઈ ડેટા ટ્રેકિંગ નહીં અને કોઈ એડ્સ નહીં! બાળકો માટે તદ્દન સુરક્ષિત અને ઈન્ટરનેટ વગર (Offline) પણ ચાલે તેવી એક અનોખી શૈક્ષણિક એપ.</p>
+            <p class="popup-section-body">કોઈ લોગ-ઈન નહીં, કોઈ અંગત ડેટા ટ્રેકિંગ નહીં અને બાળકો માટે સંપૂર્ણ સુરક્ષિત શૈક્ષણિક એપ! બાળકો માટે તદ્દન સુરક્ષિત અને ઈન્ટરનેટ વગર (Offline) પણ ચાલે તેવી એક અનોખી શૈક્ષણિક એપ.</p>
           </div>
           
           <p class="popup-footer-text">અક્ષરોની આ કલરફુલ અને મનોરંજક સફરમાં તમારા બાળક સાથે જોડાઓ! 🚀</p>
@@ -332,12 +330,12 @@
           
           <div class="privacy-section">
             <h2 class="privacy-section-title">🛡️ Privacy Commitment</h2>
-            <p class="privacy-section-body">We prioritize your child's privacy. While Kakkodhamal does not directly collect, store, or transmit personal information, the app partner-integrates with third-party advertising providers to support the application.</p>
+            <p class="privacy-section-body">We prioritize your child's privacy. While Kakkodhamal does not directly collect, store, or transmit personal identifiers (like names or emails), the app integrates with trusted third-party services (Google Firebase and approved Ad Networks) to support the application, monitor stability, and improve the learning experience.</p>
           </div>
           
           <div class="privacy-section">
-            <h2 class="privacy-section-title">1. 100% Offline & Local Gameplay</h2>
-            <p class="privacy-section-body">Aside from fetching advertisements when an active internet connection is available, all learning progress, gameplay, and interactions remain stored 100% locally on your device.</p>
+            <h2 class="privacy-section-title">1. Gameplay & Local Storage</h2>
+            <p class="privacy-section-body">All learning progress, gameplay, and interactions remain stored 100% locally on your device. The app only utilizes network data to securely fetch non-personalized advertisements, log crash data, and track basic operational app performance metrics.</p>
           </div>
           
           <div class="privacy-section">
@@ -346,27 +344,28 @@
           </div>
           
           <div class="privacy-section">
-            <h2 class="privacy-section-title">3. Advertising & Third-Party SDKs</h2>
-            <p class="privacy-section-body">To keep this app free, we display advertisements. We only partner with ad networks that support COPPA-compliant configurations for children's apps.</p>
-            <p class="privacy-section-body"><strong>Non-Personalized Ads Only:</strong> We explicitly configure our ad providers to serve non-personalized or contextually relevant ads to ensure children's behavior is not tracked across websites or apps.</p>
-            <p class="privacy-section-body">The ad networks may collect anonymous, technical device identifiers solely for ad frequency capping, contextual targeting, and fraud prevention.</p>
+            <h2 class="privacy-section-title">3. Third-Party SDKs, Advertising & Analytics</h2>
+            <p class="privacy-section-body">To keep this app free and maintain its performance, we use industry-standard developer tools. These third-party networks may process limited, anonymous technical data:</p>
+            <p class="privacy-section-body"><strong>Non-Personalized Ads Only:</strong> We display contextually relevant advertisements and explicitly configure our ad providers to serve non-personalized ads. The ad networks may collect anonymous, technical device identifiers solely for ad frequency capping, contextual targeting, and fraud prevention. No behavioral tracking across other websites or apps occurs.</p>
+            <p class="privacy-section-body"><strong>Google Firebase Analytics:</strong> We use this to understand general app usage (e.g., which screens are opened, app updates). It tracks anonymous event data and technical device details for internal operational metrics only.</p>
+            <p class="privacy-section-body"><strong>Google Firebase Crashlytics:</strong> To fix bugs and prevent crashes, Crashlytics automatically collects anonymous stack traces, device models, and operating system versions when an error occurs.</p>
           </div>
           
           <div class="privacy-section">
             <h2 class="privacy-section-title">4. Children's Privacy Compliance (COPPA & Google Play Families)</h2>
-            <p class="privacy-section-body">Our app is designed to fully comply with the Children's Online Privacy Protection Act (COPPA) and Google Play Families Policies.</p>
+            <p class="privacy-section-body">Our app is built to strictly comply with the Children's Online Privacy Protection Act (COPPA) and Google Play Families Policies.</p>
             <p class="privacy-section-body">We do not knowingly collect personal data from children under 13.</p>
-            <p class="privacy-section-body">All ad traffic is flagged as Child-Directed at the SDK level to disable behavioral tracking.</p>
+            <p class="privacy-section-body">All ad traffic and Firebase services are explicitly flagged as Child-Directed at the SDK level to disable demographic data collection, personalized advertising, and remarketing features.</p>
           </div>
           
           <div class="privacy-section">
             <h2 class="privacy-section-title">5. Permissions</h2>
-            <p class="privacy-section-body">Depending on the ad network requirements, the app may utilize basic network access permissions (INTERNET and ACCESS_NETWORK_STATE) to fetch ads. It does not request access to sensitive features like your location, camera, microphone, or contacts.</p>
+            <p class="privacy-section-body">The app utilizes basic network access permissions (INTERNET and ACCESS_NETWORK_STATE) to fetch ads and securely transmit anonymous diagnostics. It does not request access to sensitive device permissions like your location, camera, microphone, local storage, or contacts.</p>
           </div>
           
           <div class="privacy-section">
             <h2 class="privacy-section-title">6. Contact Us</h2>
-            <p class="privacy-section-body">If you have any questions or feedback regarding this Privacy Policy or our advertising practices, please feel free to reach out to us at:</p>
+            <p class="privacy-section-body">If you have any questions or feedback regarding this Privacy Policy or our development practices, please feel free to reach out to us at:</p>
             <p class="privacy-section-body">✉️ <strong>Email:</strong> <a href="mailto:hello.kakkodhamaal@gmail.com">hello.kakkodhamaal@gmail.com</a></p>
           </div>
         </div>
